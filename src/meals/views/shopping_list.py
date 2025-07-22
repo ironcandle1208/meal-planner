@@ -60,9 +60,12 @@ class ShoppingListView:
         
         # Buttons for list actions
         list_actions = toga.Box(style=Pack(direction=ROW, padding=5))
-        add_button = toga.Button("追加", on_press=self.on_add_shopping_list)
-        generate_button = toga.Button("献立から生成", on_press=self.on_generate_from_meal_plans)
-        delete_button = toga.Button("削除", on_press=self.on_delete_shopping_list)
+        add_button = toga.Button("追加")
+        add_button.on_press = self.on_add_shopping_list
+        generate_button = toga.Button("献立から生成")
+        generate_button.on_press = self.on_generate_from_meal_plans
+        delete_button = toga.Button("削除")
+        delete_button.on_press = self.on_delete_shopping_list
         
         list_actions.add(add_button)
         list_actions.add(generate_button)
@@ -119,8 +122,8 @@ class ShoppingListView:
         filter_selection = toga.Selection(
             items=["全て", "未購入のみ", "購入済みのみ"],
             style=Pack(flex=1),
-            on_select=self.on_filter_changed,
         )
+        filter_selection.on_select = self.on_filter_changed
         filter_box.add(filter_label)
         filter_box.add(filter_selection)
         
@@ -130,17 +133,21 @@ class ShoppingListView:
         category_selection = toga.Selection(
             items=["全て", "野菜", "肉", "魚", "乳製品", "穀物", "果物", "調味料", "その他"],
             style=Pack(flex=1),
-            on_select=self.on_category_changed,
         )
+        category_selection.on_select = self.on_category_changed
         category_box.add(category_label)
         category_box.add(category_selection)
         
         # Buttons for items actions
         items_actions = toga.Box(style=Pack(direction=ROW, padding=2))
-        add_item_button = toga.Button("アイテムを追加", on_press=self.on_add_item)
-        edit_item_button = toga.Button("アイテムを編集", on_press=self.on_edit_item)
-        remove_item_button = toga.Button("アイテムを削除", on_press=self.on_remove_item)
-        mark_purchased_button = toga.Button("購入済みにする", on_press=self.on_mark_purchased)
+        add_item_button = toga.Button("アイテムを追加")
+        add_item_button.on_press = self.on_add_item
+        edit_item_button = toga.Button("アイテムを編集")
+        edit_item_button.on_press = self.on_edit_item
+        remove_item_button = toga.Button("アイテムを削除")
+        remove_item_button.on_press = self.on_remove_item
+        mark_purchased_button = toga.Button("購入済みにする")
+        mark_purchased_button.on_press = self.on_mark_purchased
         
         items_actions.add(add_item_button)
         items_actions.add(edit_item_button)
@@ -160,8 +167,10 @@ class ShoppingListView:
         
         # Buttons for details actions
         details_actions = toga.Box(style=Pack(direction=ROW, padding=5))
-        save_button = toga.Button("保存", on_press=self.on_save_shopping_list)
-        cancel_button = toga.Button("キャンセル", on_press=self.on_cancel_edit)
+        save_button = toga.Button("保存")
+        save_button.on_press = self.on_save_shopping_list
+        cancel_button = toga.Button("キャンセル")
+        cancel_button.on_press = self.on_cancel_edit
         
         details_actions.add(save_button)
         details_actions.add(cancel_button)

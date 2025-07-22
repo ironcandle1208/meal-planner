@@ -24,7 +24,6 @@ test_sources = [
 
 requires = [
     "sqlalchemy~=2.0.0",
-    "pydantic~=2.0.0",
 ]
 test_requires = [
     "pytest",
@@ -185,19 +184,18 @@ supported_platforms = [
 
 deployment_target = "15.0"
 
-info_plist_extensions = {
-    "UILaunchStoryboardName": "LaunchScreen",
-    "UIRequiresFullScreen": true,
-    "UISupportedInterfaceOrientations": [
-        "UIInterfaceOrientationPortrait",
-        "UIInterfaceOrientationLandscapeLeft",
-        "UIInterfaceOrientationLandscapeRight",
-    ],
-    "NSCameraUsageDescription": "This app does not use the camera.",
-    "NSPhotoLibraryUsageDescription": "This app does not use the photo library.",
-    "NSMicrophoneUsageDescription": "This app does not use the microphone.",
-    "NSLocationWhenInUseUsageDescription": "This app does not use location services.",
-}
+[tool.briefcase.app.meals.iOS.info_plist_extensions]
+UILaunchStoryboardName = "LaunchScreen"
+UIRequiresFullScreen = true
+UISupportedInterfaceOrientations = [
+    "UIInterfaceOrientationPortrait",
+    "UIInterfaceOrientationLandscapeLeft",
+    "UIInterfaceOrientationLandscapeRight",
+]
+NSCameraUsageDescription = "This app does not use the camera."
+NSPhotoLibraryUsageDescription = "This app does not use the photo library."
+NSMicrophoneUsageDescription = "This app does not use the microphone."
+NSLocationWhenInUseUsageDescription = "This app does not use location services."
 
 [tool.briefcase.app.meals.android]
 requires = [

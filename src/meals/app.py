@@ -38,7 +38,7 @@ class MealPlannerApp(toga.App):
             direction="column",
             alignment="center",
             flex=1,
-            background_color=(1, 1, 1, 1),
+            background_color="white",
         ))
         
         # アプリ名ラベル
@@ -101,7 +101,7 @@ class MealPlannerApp(toga.App):
                 "アプリケーションを再起動してください。"
             ))
     
-    def _create_main_view(self):
+    def _create_main_view(self, *args):
         """
         メインビューを作成する
         """

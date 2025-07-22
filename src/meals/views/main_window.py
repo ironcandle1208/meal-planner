@@ -31,9 +31,6 @@ class MainView:
         # Main container
         self.main_box = toga.Box(style=Pack(direction=COLUMN))
         
-        # Create tab container
-        self.tabs = toga.OptionContainer(style=Pack(flex=1))
-        
         # Import views here to avoid circular imports
         from meals.views.meal_plan import MealPlanView
         from meals.views.recipe import RecipeView
@@ -44,10 +41,15 @@ class MainView:
         self.recipe_view = RecipeView(self.app)
         self.shopping_list_view = ShoppingListView(self.app)
         
-        # Add tabs
-        self.tabs.add("献立", self.meal_plan_view.content)
-        self.tabs.add("レシピ", self.recipe_view.content)
-        self.tabs.add("買い物リスト", self.shopping_list_view.content)
+        # Create tab container with content
+        self.tabs = toga.OptionContainer(
+            style=Pack(flex=1),
+            content=[
+                ("献立", self.meal_plan_view.content),
+                ("レシピ", self.recipe_view.content),
+                ("買い物リスト", self.shopping_list_view.content),
+            ]
+        )
         
         # Add tabs to main box
         self.main_box.add(self.tabs)

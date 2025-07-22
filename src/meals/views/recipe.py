@@ -64,15 +64,18 @@ class RecipeView:
         search_box = toga.Box(style=Pack(direction=ROW, padding=5))
         search_label = toga.Label("検索:", style=Pack(width=50, padding=(0, 5, 0, 0)))
         search_input = toga.TextInput(style=Pack(flex=1))
-        search_button = toga.Button("検索", on_press=self.on_search)
+        search_button = toga.Button("検索")
+        search_button.on_press = self.on_search
         search_box.add(search_label)
         search_box.add(search_input)
         search_box.add(search_button)
         
         # Buttons for list actions
         list_actions = toga.Box(style=Pack(direction=ROW, padding=5))
-        add_button = toga.Button("追加", on_press=self.on_add_recipe)
-        delete_button = toga.Button("削除", on_press=self.on_delete_recipe)
+        add_button = toga.Button("追加")
+        add_button.on_press = self.on_add_recipe
+        delete_button = toga.Button("削除")
+        delete_button.on_press = self.on_delete_recipe
         
         list_actions.add(add_button)
         list_actions.add(delete_button)
@@ -111,10 +114,8 @@ class RecipeView:
         time_box = toga.Box(style=Pack(direction=ROW, padding=2))
         time_label = toga.Label("調理時間(分):", style=Pack(width=100, padding=(0, 5, 0, 0)))
         self.preparation_time_input = toga.NumberInput(
-            min_value=1,
-            max_value=999,
-            step=1,
             style=Pack(width=100),
+            value=30,
         )
         time_box.add(time_label)
         time_box.add(self.preparation_time_input)
@@ -147,9 +148,12 @@ class RecipeView:
         
         # Buttons for ingredients actions
         ingredients_actions = toga.Box(style=Pack(direction=ROW, padding=2))
-        add_ingredient_button = toga.Button("材料を追加", on_press=self.on_add_ingredient)
-        edit_ingredient_button = toga.Button("材料を編集", on_press=self.on_edit_ingredient)
-        remove_ingredient_button = toga.Button("材料を削除", on_press=self.on_remove_ingredient)
+        add_ingredient_button = toga.Button("材料を追加")
+        add_ingredient_button.on_press = self.on_add_ingredient
+        edit_ingredient_button = toga.Button("材料を編集")
+        edit_ingredient_button.on_press = self.on_edit_ingredient
+        remove_ingredient_button = toga.Button("材料を削除")
+        remove_ingredient_button.on_press = self.on_remove_ingredient
         
         ingredients_actions.add(add_ingredient_button)
         ingredients_actions.add(edit_ingredient_button)
@@ -169,8 +173,10 @@ class RecipeView:
         
         # Buttons for details actions
         details_actions = toga.Box(style=Pack(direction=ROW, padding=5))
-        save_button = toga.Button("保存", on_press=self.on_save_recipe)
-        cancel_button = toga.Button("キャンセル", on_press=self.on_cancel_edit)
+        save_button = toga.Button("保存")
+        save_button.on_press = self.on_save_recipe
+        cancel_button = toga.Button("キャンセル")
+        cancel_button.on_press = self.on_cancel_edit
         
         details_actions.add(save_button)
         details_actions.add(cancel_button)

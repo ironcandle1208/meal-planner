@@ -62,8 +62,10 @@ class MealPlanView:
         
         # Buttons for list actions
         list_actions = toga.Box(style=Pack(direction=ROW, padding=5))
-        add_button = toga.Button("追加", on_press=self.on_add_meal_plan)
-        delete_button = toga.Button("削除", on_press=self.on_delete_meal_plan)
+        add_button = toga.Button("追加")
+        add_button.on_press = self.on_add_meal_plan
+        delete_button = toga.Button("削除")
+        delete_button.on_press = self.on_delete_meal_plan
         
         list_actions.add(add_button)
         list_actions.add(delete_button)
@@ -111,8 +113,10 @@ class MealPlanView:
             style=Pack(flex=1, height=150),
         )
         recipes_actions = toga.Box(style=Pack(direction=ROW, padding=2))
-        add_recipe_button = toga.Button("レシピを追加", on_press=self.on_add_recipe)
-        remove_recipe_button = toga.Button("レシピを削除", on_press=self.on_remove_recipe)
+        add_recipe_button = toga.Button("レシピを追加")
+        add_recipe_button.on_press = self.on_add_recipe
+        remove_recipe_button = toga.Button("レシピを削除")
+        remove_recipe_button.on_press = self.on_remove_recipe
         recipes_actions.add(add_recipe_button)
         recipes_actions.add(remove_recipe_button)
         
@@ -128,8 +132,10 @@ class MealPlanView:
         
         # Buttons for details actions
         details_actions = toga.Box(style=Pack(direction=ROW, padding=5))
-        save_button = toga.Button("保存", on_press=self.on_save_meal_plan)
-        cancel_button = toga.Button("キャンセル", on_press=self.on_cancel_edit)
+        save_button = toga.Button("保存")
+        save_button.on_press = self.on_save_meal_plan
+        cancel_button = toga.Button("キャンセル")
+        cancel_button.on_press = self.on_cancel_edit
         
         details_actions.add(save_button)
         details_actions.add(cancel_button)

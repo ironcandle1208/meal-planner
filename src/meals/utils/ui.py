@@ -109,7 +109,7 @@ def show_loading(window: toga.Window, message: str = "読み込み中...") -> to
         direction="column",
         alignment="center",
         flex=1,
-        background_color=(0, 0, 0, 0.5),
+        background_color="#00000080",
     ))
     
     # Create a loading box
@@ -117,8 +117,8 @@ def show_loading(window: toga.Window, message: str = "読み込み中...") -> to
         direction="column",
         alignment="center",
         padding=20,
-        background_color=(1, 1, 1, 1),
-        border_color=(0, 0, 0, 0.2),
+        background_color="white",
+        border_color="#00000033",
         border_width=1,
     ))
     
