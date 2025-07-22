@@ -175,6 +175,30 @@ requires = [
     "std-nslog~=1.0.3",
 ]
 
+icon = "src/meals/resources/app"
+
+supported_platforms = [
+    "iOS 15",
+    "iOS 16",
+    "iOS 17",
+]
+
+deployment_target = "15.0"
+
+info_plist_extensions = {
+    "UILaunchStoryboardName": "LaunchScreen",
+    "UIRequiresFullScreen": true,
+    "UISupportedInterfaceOrientations": [
+        "UIInterfaceOrientationPortrait",
+        "UIInterfaceOrientationLandscapeLeft",
+        "UIInterfaceOrientationLandscapeRight",
+    ],
+    "NSCameraUsageDescription": "This app does not use the camera.",
+    "NSPhotoLibraryUsageDescription": "This app does not use the photo library.",
+    "NSMicrophoneUsageDescription": "This app does not use the microphone.",
+    "NSLocationWhenInUseUsageDescription": "This app does not use location services.",
+}
+
 [tool.briefcase.app.meals.android]
 requires = [
     "toga-android~=0.5.0",
